@@ -1,0 +1,13 @@
+<div class="sidebar bg-gray-100 shadow-2 min-h-full w-13rem">
+  <div class="sidebar__wrapper px-3 py-4">
+    <div class="sidebar__items flex flex-column gap-2">
+      <a
+        *ngFor="let item of items"
+        class="sidebar__item text-lg p-2 border-round-md hover:bg-gray-300 cursor-pointer relative z-3"
+        [routerLink]="item.route"
+      >
+        {{ item.name }}
+      </a>
+    </div>
+  </div>
+</div>
