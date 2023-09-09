@@ -1,0 +1,18 @@
+<div class="default-layout flex flex-column">
+  <header class="default-layout__header flex-shrink-0 bg-gray-50 py-3 shadow-3 relative z-2">
+    <app-container>
+      <ng-content select=".header"></ng-content>
+    </app-container>
+  </header>
+
+  <main class="default-layout__main min-h-screen flex">
+    <aside class="default-layout__main-sidebar min-w-min flex-none">
+      <ng-content select=".sidebar"></ng-content>
+    </aside>
+    <div class="default-layout__main-content flex-1">
+      <app-container>
+        <ng-content select=".main-content"></ng-content>
+      </app-container>
+    </div>
+  </main>
+</div>
