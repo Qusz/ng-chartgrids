@@ -2,7 +2,7 @@ export type Customer = {
   id: string;
   name: string;
   phoneNumber: string;
-  registeredDate: string;
+  registeredDate: string | number;
   pointOfRegistration: string;
   sex?: string | null;
   birthDate?: string | null;
