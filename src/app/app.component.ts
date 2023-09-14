@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidebarItem } from './models';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-chartgrid';
+  sidebarItems: SidebarItem[] = [
+    {
+      name: 'Charts',
+      route: 'charts'
+    },
+    {
+      name: 'Grids',
+      route: 'grids'
+    }
+  ];
 }
