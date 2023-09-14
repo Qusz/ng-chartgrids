@@ -6,7 +6,8 @@
   "overrides": [
     {
       "files": [
-        "*.ts"
+        "*.ts",
+        "*.js"
       ],
       "extends": [
         "airbnb-base",
@@ -61,14 +62,22 @@
       "rules": {}
     }
   ],
+  "env": {
+    "es6": true,
+    "browser" : true,
+    "node" : true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts"]
+      "@typescript-eslint/parser": [".ts", ".js"]
     },
     "import/resolver": {
       "typescript": true,
       "node": true
     },
-    "import/extension": [".ts"]
+    "import/extension": [".ts", ".js"]
   }
 }
