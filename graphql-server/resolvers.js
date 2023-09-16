@@ -1,4 +1,4 @@
-import { data } from './_data';
+import { data } from './_data.js';
 
 export const resolvers = {
   Query: {
