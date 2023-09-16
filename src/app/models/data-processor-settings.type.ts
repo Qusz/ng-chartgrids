@@ -1,8 +1,8 @@
-import { Customer } from './customer.type';
+import type { CommonQueryData } from './queries.type';
 
 export type DataProcessorSettings = {
-  data: Customer[];
-  keySelector: (item: Customer) => string | number;
+  data: CommonQueryData[];
+  keySelector: (item: any) => string | number;
   countKey: string;
   valueKey: string;
 };
