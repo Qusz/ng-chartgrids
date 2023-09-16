@@ -1,75 +1,77 @@
 import { Injectable } from '@angular/core';
 
-import type { Customer, ChartDataCategory, ChartDataDate } from 'src/app/models';
+import type {
+  Customer,
+  ChartDataCategory,
+  ChartDataDate,
+  DataProcessorSettings
+} from 'src/app/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataProccesorService {
   processGenders(data: Customer[]): ChartDataCategory[] {
-    const result = this.processCategoryData(data, (item) => item.sex ?? 'Unknown');
+    const settings: DataProcessorSettings = {
+      data,
+      keySelector: (item) => item.sex ?? 'Unknown',
+      valueKey: 'gender',
+      countKey: 'count'
+    };
 
-    return result;
+    return this.processData<ChartDataCategory>(settings);
   }
 
-  processPointOfRegistration(data: Customer[]): ChartDataCategory[] {
-    const result = this.processCategoryData(data, (item) => item.pointOfRegistration);
+  processRegistrartionPoints(data: Customer[]): ChartDataCategory[] {
+    const settings: DataProcessorSettings = {
+      data,
+      keySelector: (item) => item.pointOfRegistration,
+      valueKey: 'point',
+      countKey: 'count'
+    };
+
+    const result = this.processData<ChartDataCategory>(settings);
 
     result.sort((a, b) => (a.count > b.count ? 1 : -1));
 
     return result;
   }
 
-  processRegistrationsPeriod(data: Customer[]): ChartDataDate[] {
+  processRegistrationDates(data: Customer[]): ChartDataDate[] {
+    // Convert string date to timpestamp
     const convertedData = data.map((obj) =>
       typeof obj.registeredDate === 'string'
         ? { ...obj, registeredDate: this.timestampToDate(obj.registeredDate) }
         : obj
     );
 
-    const result = this.processDateData(convertedData, (item) => item.registeredDate as number);
+    const settings: DataProcessorSettings = {
+      data: convertedData,
+      keySelector: (item) => item.registeredDate,
+      valueKey: 'date',
+      countKey: 'count'
+    };
+
+    const result = this.processData<ChartDataDate>(settings);
 
     result.sort((a, b) => a.date - b.date);
 
     return result;
   }
 
-  private processCategoryData(
-    data: Customer[],
-    keySelector: (item: Customer) => string
-  ): ChartDataCategory[] {
-    const result: ChartDataCategory[] = [];
+  private processData<T>(settings: DataProcessorSettings): T[] {
+    const result: T[] = [];
+    const { data, keySelector, countKey, valueKey } = settings;
 
     data.forEach((item) => {
       const keyValue = keySelector(item);
 
-      const existingItem = result.find((obj) => obj.value === keyValue);
+      const existingItem = result.find((obj) => (obj as any)[valueKey] === keyValue);
 
       if (existingItem) {
-        existingItem.count += 1;
+        (existingItem as any)[countKey] += 1;
       } else {
-        result.push({ value: keyValue, count: 1 });
-      }
-    });
-
-    return result;
-  }
-
-  private processDateData(
-    data: Customer[],
-    keySelector: (item: Customer) => number
-  ): ChartDataDate[] {
-    const result: ChartDataDate[] = [];
-
-    data.forEach((item) => {
-      const keyValue = keySelector(item);
-
-      const existingItem = result.find((obj) => obj.date === keyValue);
-
-      if (existingItem) {
-        existingItem.value += 1;
-      } else {
-        result.push({ date: keyValue, value: 1 });
+        result.push({ [valueKey]: keyValue, [countKey]: 1 } as T);
       }
     });
 
