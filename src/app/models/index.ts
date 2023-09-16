@@ -12,6 +12,7 @@ import type { ChartData } from './chart-data.type';
 import type { CreateChartSettings } from './create-chart-settings.type';
 import type { DataProcessorSettings } from './data-processor-settings.type';
 import type { ChartsModels } from './charts-models.type';
+import type { ChartsData } from './charts-data.type';
 
 export type {
   SidebarItem,
@@ -25,5 +26,6 @@ export type {
   ChartData,
   CreateChartSettings,
   DataProcessorSettings,
-  ChartsModels
+  ChartsModels,
+  ChartsData
 };
