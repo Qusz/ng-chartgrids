@@ -17,6 +17,8 @@ export type RegisteredDateData = {
   registeredDate: string | number | null;
 };
 
+export type CommonQueryData = GenderData | PointOfRegistrationData | RegisteredDateData;
+
 export type CustomersQuery = {
   data: {
     customers: Customer[] | null;
