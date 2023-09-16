@@ -5,6 +5,18 @@ type CommonQueryProperties = {
   networkStatus: number;
 };
 
+export type GenderData = {
+  gender: string | null;
+};
+
+export type PointOfRegistrationData = {
+  pointOfRegistration: string | null;
+};
+
+export type RegisteredDateData = {
+  registeredDate: string | number | null;
+};
+
 export type CustomersQuery = {
   data: {
     customers: Customer[] | null;
@@ -13,30 +25,18 @@ export type CustomersQuery = {
 
 export type GendersQuery = {
   data: {
-    customers: [
-      {
-        sex: string | null;
-      }
-    ];
+    customers: GenderData[];
   };
 } & CommonQueryProperties;
 
 export type PointOfRegistrartionQuery = {
   data: {
-    customers: [
-      {
-        pointOfRegistration: string | null;
-      }
-    ];
+    customers: PointOfRegistrationData[];
   };
 } & CommonQueryProperties;
 
 export type RegistrationDateQuery = {
   data: {
-    customers: [
-      {
-        registeredDate: string | number | null;
-      }
-    ];
+    customers: RegisteredDateData[];
   };
 } & CommonQueryProperties;
