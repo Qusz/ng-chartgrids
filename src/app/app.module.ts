@@ -9,6 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { DefaultLayoutModule } from './components/default-layout/default-layout.
 import { HeaderModule } from './components/header/header.module';
 import { SidebarModule } from './components/sidebar/sidebar.module';
 import { GraphQLModule } from './graphql.module';
+import { ChartsModule } from './pages/charts/charts.module';
 
 const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
   primeConfig.ripple = true;
@@ -27,6 +29,7 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     ButtonModule,
     RippleModule,
@@ -34,7 +37,8 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
     HeaderModule,
     SidebarModule,
     RouterModule,
-    GraphQLModule
+    GraphQLModule,
+    ChartsModule
   ],
   providers: [
     {
