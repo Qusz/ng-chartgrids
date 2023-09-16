@@ -7,7 +7,7 @@ export const typeDefs = `#graphql
     email: String
     jobTitle: String
     jobType: String
-    sex: String,
+    gender: String,
     phoneNumber: String!
     registeredDate: String!
     pointOfRegistration: String!
@@ -17,4 +17,4 @@ export const typeDefs = `#graphql
     customers: [Customer!]!,
     customer(id: ID!): Customer!
   }
-`
+`;
