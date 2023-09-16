@@ -1,1 +1,20 @@
-<p>charts works!</p>
+<div class="mt-5 flex flex-column gap-3">
+  <p-card>
+    <app-chart
+      [chartSettings]="chartsSettings['genders']"
+      [chartData]="processedData.genders"
+    ></app-chart>
+  </p-card>
+  <p-card>
+    <app-chart
+      [chartSettings]="chartsSettings['pointsOfRegistrtion']"
+      [chartData]="processedData.pointsOfRegistration"
+    ></app-chart>
+  </p-card>
+  <p-card>
+    <app-chart
+      [chartSettings]="chartsSettings['datesOfRegistration']"
+      [chartData]="processedData.datesOfRegistration"
+    ></app-chart>
+  </p-card>
+</div>
