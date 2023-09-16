@@ -5,7 +5,7 @@ import type {
   GendersQuery,
   PointOfRegistrartionQuery,
   RegistrationDateQuery
-} from 'src/app/models/query.type';
+} from 'src/app/models/queries.type';
 
 import { Apollo, TypedDocumentNode } from 'apollo-angular';
 import { Observable, map } from 'rxjs';
