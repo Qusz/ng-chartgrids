@@ -1,1 +1,1 @@
-export type ChartType = 'category' | 'date';
+export type ChartType = 'pie' | 'line' | 'column';
