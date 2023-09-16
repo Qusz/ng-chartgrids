@@ -1,28 +1,29 @@
 import { Injectable } from '@angular/core';
 
 import type {
-  Customer,
-  ChartDataCategory,
-  ChartDataDate,
-  DataProcessorSettings
+  DataProcessorSettings,
+  ChartData,
+  GenderData,
+  PointOfRegistrationData,
+  RegisteredDateData
 } from 'src/app/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataProccesorService {
-  processGenders(data: Customer[]): ChartDataCategory[] {
+  processGenders(data: GenderData[]): ChartData[] {
     const settings: DataProcessorSettings = {
       data,
-      keySelector: (item) => item.sex ?? 'Unknown',
+      keySelector: (item) => item.gender ?? 'Unknown',
       valueKey: 'gender',
       countKey: 'count'
     };
 
-    return this.processData<ChartDataCategory>(settings);
+    return this.processData<ChartData>(settings);
   }
 
-  processRegistrartionPoints(data: Customer[]): ChartDataCategory[] {
+  processRegistrartionPoints(data: PointOfRegistrationData[]): ChartData[] {
     const settings: DataProcessorSettings = {
       data,
       keySelector: (item) => item.pointOfRegistration,
@@ -30,14 +31,14 @@ export class DataProccesorService {
       countKey: 'count'
     };
 
-    const result = this.processData<ChartDataCategory>(settings);
+    const result = this.processData<ChartData>(settings);
 
-    result.sort((a, b) => (a.count > b.count ? 1 : -1));
+    result.sort((a, b) => (a['count'] > b['count'] ? 1 : -1));
 
     return result;
   }
 
-  processRegistrationDates(data: Customer[]): ChartDataDate[] {
+  processRegistrationDates(data: RegisteredDateData[]): ChartData[] {
     // Convert string date to timpestamp
     const convertedData = data.map((obj) =>
       typeof obj.registeredDate === 'string'
@@ -52,9 +53,9 @@ export class DataProccesorService {
       countKey: 'count'
     };
 
-    const result = this.processData<ChartDataDate>(settings);
+    const result = this.processData<ChartData>(settings);
 
-    result.sort((a, b) => a.date - b.date);
+    result.sort((a, b) => (a['date'] as number) - (b['date'] as number));
 
     return result;
   }
