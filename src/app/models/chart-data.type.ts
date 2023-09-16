@@ -8,4 +8,4 @@ export type ChartDataDate = {
   value: number;
 };
 
-export type ChartData = ChartDataCategory | ChartDataDate;
+// export type ChartData = ChartDataCategory | ChartDataDate;
