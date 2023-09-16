@@ -1,10 +1,10 @@
-import customers from "./_data.js";
+import { data } from './_data';
 
 export const resolvers = {
   Query: {
-    customers: () => customers,
+    customers: () => data,
     customer: (_, args) => {
-      return customers.find((customer) => customer.id === args.id)
+      return data.find((customer) => customer.id === args.id);
     }
   }
 };
