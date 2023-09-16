@@ -1,11 +1,8 @@
-import * as am5 from '@amcharts/amcharts5';
-
 import type { ChartType } from './chart.type';
 
 export type CreateChartSettings = {
+  chartId: string;
   type: ChartType;
-  data: unknown[];
-  root: am5.Root;
   label?: string;
   series: {
     name?: string;
