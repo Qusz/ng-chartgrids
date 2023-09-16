@@ -1,11 +1,3 @@
-export type ChartDataCategory = {
-  value: string;
-  count: number;
+export type ChartData = {
+  [key: string | number]: string | number;
 };
-
-export type ChartDataDate = {
-  date: number;
-  value: number;
-};
-
-// export type ChartData = ChartDataCategory | ChartDataDate;
