@@ -13,24 +13,30 @@ export type CustomersQuery = {
 
 export type GendersQuery = {
   data: {
-    customers: {
-      genders: string[] | null;
-    };
+    customers: [
+      {
+        sex: string | null;
+      }
+    ];
   };
 } & CommonQueryProperties;
 
 export type PointOfRegistrartionQuery = {
   data: {
-    customers: {
-      pointOfRegistration: string[] | null;
-    };
+    customers: [
+      {
+        pointOfRegistration: string | null;
+      }
+    ];
   };
 } & CommonQueryProperties;
 
 export type RegistrationDateQuery = {
   data: {
-    customers: {
-      registeredDate: string[] | number[] | null;
-    };
+    customers: [
+      {
+        registeredDate: string | number | null;
+      }
+    ];
   };
 } & CommonQueryProperties;
