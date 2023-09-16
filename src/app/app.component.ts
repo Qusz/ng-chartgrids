@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { SidebarItem } from './models';
+
+import { defaultSidebarItems } from './components/sidebar/default-sidebar-items';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,5 @@ import { SidebarItem } from './models';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  sidebarItems: SidebarItem[] = [
-    {
-      name: 'Charts',
-      route: 'charts'
-    },
-    {
-      name: 'Grids',
-      route: 'grids'
-    }
-  ];
+  sidebarItems = defaultSidebarItems;
 }
