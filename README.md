@@ -19,8 +19,8 @@ This is a practice project that combines Angular, GraphQL, AMCharts and Ag-Grid.
 
 ## Development server
 
-- Run `graphql` to run the GraphQL server.
-- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+- Run `$ graphql` to run the GraphQL server.
+- Run `$ ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 ## Project structure
 
