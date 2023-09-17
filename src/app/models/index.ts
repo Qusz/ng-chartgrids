@@ -1,3 +1,4 @@
+import { AllUsersGrid } from './all-users-grid.type';
 import type { ChartType } from './chart.type';
 import type { SidebarItem } from './sidebar-item.type';
 import type { Customer } from './customer.type';
@@ -27,5 +28,6 @@ export type {
   CreateChartSettings,
   DataProcessorSettings,
   ChartsModels,
-  ChartsData
+  ChartsData,
+  AllUsersGrid
 };
