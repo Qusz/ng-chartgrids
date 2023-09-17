@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataProccesorService } from './chart-data-proccesor.service';
+import { ChartDataProccesorService } from './chart-data-proccesor.service';
 
 describe('DataProccesorService', () => {
-  let service: DataProccesorService;
+  let service: ChartDataProccesorService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DataProccesorService);
+    service = TestBed.inject(ChartDataProccesorService);
   });
 
   it('should be created', () => {
