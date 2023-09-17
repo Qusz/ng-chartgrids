@@ -11,7 +11,7 @@ import type {
 @Injectable({
   providedIn: 'root'
 })
-export class DataProccesorService {
+export class ChartDataProccesorService {
   processGenders(data: GenderData[]): ChartData[] {
     const settings: DataProcessorSettings = {
       data,

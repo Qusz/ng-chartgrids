@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataProccesorService } from './data-proccesor.service';
+import { DataProccesorService } from './chart-data-proccesor.service';
 
 describe('DataProccesorService', () => {
   let service: DataProccesorService;
