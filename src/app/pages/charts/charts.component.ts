@@ -1,4 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+  ChangeDetectorRef
+} from '@angular/core';
 
 import type { ChartsData } from 'src/app/models';
 
@@ -9,7 +15,8 @@ import { ChartDataProccesorService } from 'src/app/shared/chart-data-proccesor/c
 import { allChartsSettings } from './charts-settings';
 
 @Component({
-  templateUrl: './charts.component.html'
+  templateUrl: './charts.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChartsComponent implements OnInit, OnDestroy {
   processedData: ChartsData = {
@@ -23,6 +30,7 @@ export class ChartsComponent implements OnInit, OnDestroy {
   private querySubscription$: Subscription = new Subscription();
 
   constructor(
+    private changeDetectorRef: ChangeDetectorRef,
     private getDataService: GetDataService,
     private chartDataProccesor: ChartDataProccesorService
   ) {}
@@ -43,6 +51,8 @@ export class ChartsComponent implements OnInit, OnDestroy {
     this.querySubscription$.add(
       genders$.subscribe(({ data }) => {
         this.processedData.genders = this.chartDataProccesor.processGenders(data.customers);
+
+        this.changeDetectorRef.markForCheck();
       })
     );
 
@@ -50,6 +60,8 @@ export class ChartsComponent implements OnInit, OnDestroy {
       pointsOfRegistration$.subscribe(({ data }) => {
         this.processedData.pointsOfRegistration =
           this.chartDataProccesor.processRegistrartionPoints(data.customers);
+
+        this.changeDetectorRef.markForCheck();
       })
     );
 
@@ -58,6 +70,8 @@ export class ChartsComponent implements OnInit, OnDestroy {
         this.processedData.datesOfRegistration = this.chartDataProccesor.processRegistrationDates(
           data.customers
         );
+
+        this.changeDetectorRef.markForCheck();
       })
     );
   }
