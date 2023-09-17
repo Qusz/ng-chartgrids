@@ -8,6 +8,14 @@ This is a practice project that combines Angular, GraphQL, AMCharts and Ag-Grid.
 
 - Clone repository `$ git clone https://github.com/Qusz/ng-chartgrids.git`
 - Install dependencies `$ npm i`
+## Introduction
+
+This is a practice project that combines Angular, GraphQL, AMCharts and Ag-Grid.
+
+## Installation
+
+- Clone repository `$ git clone https://github.com/Qusz/ng-chartgrids.git`
+- Install dependencies `$ npm i`
 
 ## Development server
 
