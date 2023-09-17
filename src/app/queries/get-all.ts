@@ -8,7 +8,7 @@ export const GET_ALL_CUSTOMERS = gql`
       birthDate
       location
       email
-      sex
+      gender
       phoneNumber
       jobTitle
       jobType
