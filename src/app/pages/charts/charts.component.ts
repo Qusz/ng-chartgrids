@@ -4,7 +4,7 @@ import type { ChartsData } from 'src/app/models';
 
 import { Subscription } from 'rxjs';
 import { GetDataService } from 'src/app/shared/get-data/get-data.service';
-import { DataProccesorService } from 'src/app/shared/data-proccesor/data-proccesor.service';
+import { ChartDataProccesorService } from 'src/app/shared/chart-data-proccesor/chart-data-proccesor.service';
 
 import { allChartsSettings } from './charts-settings';
 
@@ -24,7 +24,7 @@ export class ChartsComponent implements OnInit, OnDestroy {
 
   constructor(
     private getDataService: GetDataService,
-    private dataProccesorService: DataProccesorService
+    private chartDataProccesor: ChartDataProccesorService
   ) {}
 
   ngOnInit(): void {
@@ -42,20 +42,20 @@ export class ChartsComponent implements OnInit, OnDestroy {
 
     this.querySubscription$.add(
       genders$.subscribe(({ data }) => {
-        this.processedData.genders = this.dataProccesorService.processGenders(data.customers);
+        this.processedData.genders = this.chartDataProccesor.processGenders(data.customers);
       })
     );
 
     this.querySubscription$.add(
       pointsOfRegistration$.subscribe(({ data }) => {
         this.processedData.pointsOfRegistration =
-          this.dataProccesorService.processRegistrartionPoints(data.customers);
+          this.chartDataProccesor.processRegistrartionPoints(data.customers);
       })
     );
 
     this.querySubscription$.add(
       datesOfRegistration$.subscribe(({ data }) => {
-        this.processedData.datesOfRegistration = this.dataProccesorService.processRegistrationDates(
+        this.processedData.datesOfRegistration = this.chartDataProccesor.processRegistrationDates(
           data.customers
         );
       })
