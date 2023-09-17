@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
 
 import type { CreateChartSettings, ChartData } from 'src/app/models';
 
@@ -8,7 +15,8 @@ import { CreateChartService } from './create-chart.service';
 
 @Component({
   selector: 'app-chart',
-  templateUrl: './chart.component.html'
+  templateUrl: './chart.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChartComponent implements AfterViewInit, OnChanges {
   @Input() chartData: ChartData[] | null = null;
