@@ -19,6 +19,7 @@ import { HeaderModule } from './components/header/header.module';
 import { SidebarModule } from './components/sidebar/sidebar.module';
 import { GraphQLModule } from './graphql.module';
 import { ChartsModule } from './pages/charts/charts.module';
+import { GridsModule } from './pages/grids/grids.module';
 
 const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
   primeConfig.ripple = true;
@@ -38,7 +39,8 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
     SidebarModule,
     RouterModule,
     GraphQLModule,
-    ChartsModule
+    ChartsModule,
+    GridsModule
   ],
   providers: [
     {
