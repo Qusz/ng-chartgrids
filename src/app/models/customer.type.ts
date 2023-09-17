@@ -4,7 +4,7 @@ export type Customer = {
   phoneNumber: string;
   registeredDate: string | number;
   pointOfRegistration: string;
-  sex?: string | null;
+  gender?: string | null;
   birthDate?: string | null;
   location?: string | null;
   email?: string | null;
