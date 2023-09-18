@@ -2,19 +2,19 @@
   <p-card>
     <app-chart
       [chartSettings]="chartsSettings['genders']"
-      [chartData]="processedData.genders"
+      [chartData]="genders$ | async"
     ></app-chart>
   </p-card>
   <p-card>
     <app-chart
       [chartSettings]="chartsSettings['pointsOfRegistrtion']"
-      [chartData]="processedData.pointsOfRegistration"
+      [chartData]="pointsOfRegistration$ | async"
     ></app-chart>
   </p-card>
   <p-card>
     <app-chart
       [chartSettings]="chartsSettings['datesOfRegistration']"
-      [chartData]="processedData.datesOfRegistration"
+      [chartData]="datesOfRegistration$ | async"
     ></app-chart>
   </p-card>
 </div>
