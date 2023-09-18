@@ -33,9 +33,9 @@ export class GridsComponent {
   private getGridData() {
     this.rowData$ = this.getDataService.getCustomers().pipe(
       map(({ data }) => {
-        return data.customers
-          ? this.gridDataProcessorService.processAllCustomers(data.customers)
-          : [];
+        const { customers } = data;
+
+        return customers ? this.gridDataProcessorService.processAllCustomers(customers) : [];
       })
     );
 
