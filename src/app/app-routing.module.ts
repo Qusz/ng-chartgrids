@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChartsComponent } from './pages/charts/charts.component';
-import { GridsComponent } from './pages/grids/grids.component';
 
 const routes: Routes = [
   {
@@ -11,11 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'charts',
-    component: ChartsComponent
+    loadChildren: () => import('./pages/charts/charts.module').then((m) => m.ChartsModule)
   },
   {
     path: 'grids',
-    component: GridsComponent
+    loadChildren: () => import('./pages/grids/grids.module').then((m) => m.GridsModule)
   },
   {
     path: '**',
