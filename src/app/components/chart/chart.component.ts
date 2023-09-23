@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -16,7 +17,9 @@ import { CreateChartService } from './create-chart.service';
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule]
 })
 export class ChartComponent implements AfterViewInit, OnChanges {
   @Input() chartData: ChartData[] | null = null;

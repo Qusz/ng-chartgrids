@@ -1,16 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import type { ChartData } from 'src/app/models';
 
 import { Observable, map } from 'rxjs';
+import { CardModule } from 'primeng/card';
+
 import { GetDataService } from 'src/app/shared/get-data/get-data.service';
 import { ChartDataProccesorService } from 'src/app/shared/chart-data-proccesor/chart-data-proccesor.service';
 
+import { ChartComponent } from 'src/app/components/chart/chart.component';
 import { allChartsSettings } from './charts-settings';
 
 @Component({
   templateUrl: './charts.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, ChartComponent, ChartComponent, CardModule]
 })
 export class ChartsComponent implements OnInit {
   chartsSettings = allChartsSettings;

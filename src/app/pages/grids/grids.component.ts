@@ -1,8 +1,12 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import type { AllUsersGrid } from 'src/app/models';
 
 import { Observable, map } from 'rxjs';
+
+import { GridComponent } from 'src/app/components/grid/grid.component';
+
 import { GetDataService } from '../../shared/get-data/get-data.service';
 import { GridDataProcessorService } from '../../shared/grid-data-processor/grid-data-processor.service';
 
@@ -10,7 +14,9 @@ import { allCustomersGridOptions } from './grids-options';
 
 @Component({
   templateUrl: './grids.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, GridComponent]
 })
 export class GridsComponent {
   gridOptions = {
